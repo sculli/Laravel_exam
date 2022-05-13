@@ -12,5 +12,13 @@ class TaskController extends Controller
             'tasks' => \App\Models\Task::all(),
         ]);
     }
+    
+    public function show($task) 
+    {
+            $task = \App\Models\Task::findOrFail( $task );
+
+            return view('task',[
+                'task' => $task,
+            ]);
+     }
 }
-//TOTO
